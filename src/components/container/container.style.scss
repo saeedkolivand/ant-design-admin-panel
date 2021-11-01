@@ -1,0 +1,134 @@
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin absoluteCenter {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.site-layout {
+  .site-layout-background {
+    padding: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .trigger {
+      font-size: 18px;
+      line-height: 64px;
+      padding: 0 24px;
+      cursor: pointer;
+      transition: color 0.3s;
+      z-index: 1;
+
+      &:hover {
+        color: #1890ff;
+      }
+    }
+
+    .sign-out-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding-right: 1rem;
+
+      .profile-btn {
+        @include flexCenter;
+        justify-content: space-evenly;
+        width: max-content;
+        padding-left: 2ch;
+        padding-right: 2ch;
+        border: none;
+
+        .profile {
+          margin-left: 0.5rem;
+        }
+      }
+
+      .header-wrapper {
+        width: 50ch;
+        justify-content: space-evenly;
+      }
+    }
+  }
+
+  #page-container {
+    width: 100%;
+    //user-select: none;
+    padding: 24px;
+    //   min-height: unset;
+    overflow: auto;
+    height: 100%;
+
+    .page-container-content {
+      //background: #fff;
+      padding: 24px;
+      box-shadow: 4px 4px 20px 0 rgba(0, 0, 0, 0.01);
+      border-radius: 5px;
+      overflow: auto;
+
+      &.fullscreen-page {
+        padding-top: 0;
+        z-index: 1;
+        min-height: 100vh;
+      }
+
+      &.no-padding {
+        padding: 0;
+      }
+
+      &.header-pos-fix {
+        padding-top: 54px;
+      }
+    }
+
+    .container {
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        width: 750px;
+      }
+    }
+    @media (min-width: 992px) {
+      .container {
+        width: 970px;
+      }
+    }
+    @media (min-width: 1200px) {
+      .container {
+        width: 1170px;
+      }
+    }
+
+    .container-fluid {
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+
+  .footer {
+    text-align: center;
+    color: #919194;
+  }
+}
+
+.ant-spin-nested-loading {
+  height: 100%;
+
+  .ant-spin-container {
+    height: 100%;
+  }
+}

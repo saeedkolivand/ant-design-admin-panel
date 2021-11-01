@@ -1,0 +1,15 @@
+.marker-main-wrapper {
+  //position: absolute;
+  //transform: translate(-50%, -50%);
+  //background-image: url("../../../../assets/markers/pin.svg");
+  background-repeat: no-repeat;
+
+  //z-index: 1;
+  //color: transparent;
+
+  .pin-image {
+    width: 40px !important;
+    margin-top: -34px;
+    margin-left: -17px;
+  }
+}

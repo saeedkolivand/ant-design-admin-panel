@@ -1,0 +1,80 @@
+.crud {
+  .header {
+    padding-bottom: 1.5ch;
+    justify-content: space-between;
+
+    button {
+      //margin-left: 10px;
+    }
+  }
+
+  .body {
+  }
+
+  .filters {
+    background-color: #fafafa;
+    border: 1px solid #f0f0f0;
+    margin: 1em 0;
+    padding: 15px;
+    .down-icon {
+      border: 0;
+      border-left: 1px solid #ccc;
+    }
+    .anticon-down {
+      color: #ccc !important;
+    }
+    .ant-col {
+      padding: 0.4em;
+    }
+    .btn-filter {
+      //margin-top: 3vh;
+    }
+    .label {
+      text-transform: capitalize;
+    }
+    .ant-input-affix-wrapper {
+      padding: 1px 2px !important;
+    }
+
+    button {
+      @media (max-width: 1200px) {
+        margin: 0.5em;
+      }
+    }
+    .search-filter {
+      input {
+        padding: 0.3em 0.4em;
+      }
+    }
+  }
+}
+
+.delete-operation-modal {
+  .ant-modal-content {
+    direction: rtl;
+
+    .ant-modal-body {
+      .ant-modal-confirm-body-wrapper {
+        .ant-modal-confirm-body {
+          .anticon-exclamation-circle {
+            float: right !important;
+            margin-right: unset !important;
+          }
+
+          .ant-modal-confirm-title {
+            margin-right: 4ch !important;
+          }
+        }
+
+        .ant-modal-confirm-btns {
+          float: left !important;
+
+          .ant-btn-primary {
+            margin-right: 10px !important;
+            margin-left: unset !important;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_4678" data-name="Rectangle 4678" width="50" height="50" transform="translate(0 -0.158)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_533" data-name="Mask Group 533" transform="translate(0 0.158)" clip-path="url(#clip-path)">
+    <g id="Group_5952" data-name="Group 5952" transform="translate(1 1.842)">
+      <g id="pharmacy" transform="translate(0 0)">
+        <g id="Group_5929" data-name="Group 5929">
+          <g id="Group_5928" data-name="Group 5928">
+            <path id="Path_57043" data-name="Path 57043" d="M46.4,37.254,24.771,21.527a1.794,1.794,0,0,0-2.359,0L.788,37.254c-1.573.983-.59,3.539,1.18,3.539H5.9V62.418a1.857,1.857,0,0,0,1.966,1.966H39.319c1.18,0,2.066-2.675,2.066-2.675l-.1-20.916h3.932C46.986,40.793,47.969,38.237,46.4,37.254Zm-22.8,23.2a11.8,11.8,0,1,1,11.8-11.8A11.83,11.83,0,0,1,23.592,60.452Z" transform="translate(0 -21.085)" fill="#06a101"/>
+          </g>
+        </g>
+        <g id="Group_5931" data-name="Group 5931" transform="translate(14.746 18.725)">
+          <g id="Group_5930" data-name="Group 5930">
+            <path id="Path_57044" data-name="Path 57044" d="M171.813,230.183v-5.9h-5.9v5.9h-5.9v5.9h5.9v5.9h5.9v-5.9h5.9v-5.9Z" transform="translate(-160.018 -224.285)" fill="#06a101"/>
+          </g>
+        </g>
+      </g>
+      <g id="checked" transform="translate(28.899 30.93)">
+        <g id="Group_5906" data-name="Group 5906">
+          <path id="Path_57032" data-name="Path 57032" d="M7.508,0a7.508,7.508,0,1,0,7.508,7.508A7.516,7.516,0,0,0,7.508,0Zm4.2,5.532-4.8,4.76a.738.738,0,0,1-1.035.019L3.33,8a.763.763,0,0,1-.056-1.054.744.744,0,0,1,1.054-.038L6.341,8.749l4.29-4.29A.758.758,0,0,1,11.7,5.532Z" fill="#83e97f"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

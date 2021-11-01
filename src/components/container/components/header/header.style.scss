@@ -1,0 +1,38 @@
+.theme-switch {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6ch 2ch 0 0;
+
+  .ant-switch {
+    background: url("../../../../assets/day.png");
+    background-size: 64px;
+    background-position: -19px -15px;
+
+    &::after {
+      content: "";
+      width: 14px;
+      height: 2px;
+      display: block;
+      left: 0;
+      right: 0;
+      margin: auto;
+      background: rgb(184, 184, 184);
+    }
+
+    .ant-switch-handle {
+      &::before {
+        box-shadow: 0 3px 6px #00000061;
+      }
+    }
+
+    &.ant-switch-checked {
+      background-color: #485969;
+      background: url("../../../../assets/night.png");
+      background-size: cover;
+
+      &::after {
+        background: #242b3e 0 0 no-repeat padding-box;
+      }
+    }
+  }
+}

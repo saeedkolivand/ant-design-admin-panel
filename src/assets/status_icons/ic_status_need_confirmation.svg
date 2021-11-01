@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_4683" data-name="Rectangle 4683" width="50" height="50" transform="translate(0 -0.158)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_528" data-name="Mask Group 528" transform="translate(0 0.158)" clip-path="url(#clip-path)">
+    <g id="Group_5948" data-name="Group 5948" transform="translate(1 0.842)">
+      <g id="pharmacy" transform="translate(0)">
+        <g id="Group_5929" data-name="Group 5929">
+          <g id="Group_5928" data-name="Group 5928">
+            <path id="Path_57043" data-name="Path 57043" d="M47.338,37.582,25.274,21.536a1.83,1.83,0,0,0-2.407,0L.8,37.582c-1.6,1-.6,3.61,1.2,3.61H6.019V63.256a1.9,1.9,0,0,0,2.006,2.006H40.117a1.9,1.9,0,0,0,2.006-2.006V41.193h4.012C47.939,41.193,48.942,38.585,47.338,37.582ZM24.071,61.251A12.035,12.035,0,1,1,36.105,49.216,12.07,12.07,0,0,1,24.071,61.251Z" transform="translate(0 -21.085)" fill="#013f75"/>
+          </g>
+        </g>
+        <g id="Group_5931" data-name="Group 5931" transform="translate(15.045 19.105)">
+          <g id="Group_5930" data-name="Group 5930">
+            <path id="Path_57044" data-name="Path 57044" d="M172.053,230.3v-6.017h-6.017V230.3h-6.017v6.017h6.017v6.017h6.017V236.32h6.017V230.3Z" transform="translate(-160.018 -224.285)" fill="#013f75"/>
+          </g>
+        </g>
+      </g>
+      <g id="sand-clock_2_" data-name="sand-clock (2)" transform="translate(33.941 26.089)">
+        <path id="Path_57068" data-name="Path 57068" d="M34.713,195.691l-5.078-3.862-4.977,3.859A1.685,1.685,0,0,0,24,197.026v2.132H35.385v-2.12A1.708,1.708,0,0,0,34.713,195.691Zm0,0" transform="translate(-22.499 -179.828)" fill="#216cae"/>
+        <path id="Path_57069" data-name="Path 57069" d="M.1,0h14.01a.1.1,0,0,1,.1.1v2.5a.1.1,0,0,1-.1.1H.1a.1.1,0,0,1-.1-.1V.1A.1.1,0,0,1,.1,0Zm0,0" transform="translate(0 0)" fill="#216cae"/>
+        <path id="Path_57070" data-name="Path 57070" d="M.1,323h14.01a.1.1,0,0,1,.1.1v2.5a.1.1,0,0,1-.1.095H.1a.1.1,0,0,1-.1-.095v-2.5a.1.1,0,0,1,.1-.1Zm0,0" transform="translate(0 -302.794)" fill="#216cae"/>
+        <path id="Path_57071" data-name="Path 57071" d="M23,58.958a1.688,1.688,0,0,0,.639,1.323l5.053,4.04,5.054-4.04a1.689,1.689,0,0,0,.639-1.323V57H23Zm0,0" transform="translate(-21.561 -53.434)" fill="#216cae"/>
+      </g>
+    </g>
+  </g>
+</svg>

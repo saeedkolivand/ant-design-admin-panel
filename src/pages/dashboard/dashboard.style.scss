@@ -1,0 +1,20 @@
+.dashboard {
+  width: 100%;
+  min-height: calc(100vh - 230px);
+}
+.card-space {
+  margin-bottom: 1em;
+}
+.result {
+  margin: 0 auto;
+}
+
+.icons-dashboard {
+  svg {
+    font-size: 3em;
+  }
+}
+
+.ant-statistic-title {
+  height: 2em;
+}

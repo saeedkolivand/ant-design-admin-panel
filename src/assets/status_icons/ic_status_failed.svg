@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_4692" data-name="Rectangle 4692" width="50" height="50" transform="translate(1554 1626)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_537" data-name="Mask Group 537" transform="translate(-1554 -1626)" clip-path="url(#clip-path)">
+    <g id="Group_5989" data-name="Group 5989">
+      <g id="Group_5987" data-name="Group 5987" transform="translate(1556 1628)">
+        <g id="pharmacy">
+          <g id="Group_5983" data-name="Group 5983">
+            <g id="Group_5982" data-name="Group 5982">
+              <path id="Path_57087" data-name="Path 57087" d="M45.142,36.817,24.1,21.515a1.745,1.745,0,0,0-2.3,0L.766,36.817c-1.53.956-.574,3.443,1.148,3.443H5.74V61.3a1.807,1.807,0,0,0,1.913,1.913h30.6A1.807,1.807,0,0,0,40.169,61.3V40.26h3.826C45.716,40.26,46.673,37.774,45.142,36.817ZM22.954,59.388A11.477,11.477,0,1,1,34.431,47.911,11.51,11.51,0,0,1,22.954,59.388Z" transform="translate(0 -21.085)" fill="#ef0303"/>
+            </g>
+          </g>
+          <g id="Group_5985" data-name="Group 5985" transform="translate(14.347 18.219)">
+            <g id="Group_5984" data-name="Group 5984">
+              <path id="Path_57088" data-name="Path 57088" d="M171.495,230.023v-5.738h-5.738v5.738h-5.738v5.738h5.738V241.5h5.738v-5.738h5.738v-5.738Z" transform="translate(-160.018 -224.285)" fill="#ef0303"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g id="remove" transform="translate(1585 1658.067)">
+        <path id="Path_57089" data-name="Path 57089" d="M7.955,0a7.955,7.955,0,1,0,7.955,7.955A7.963,7.963,0,0,0,7.955,0Zm0,0" fill="#b80000"/>
+        <path id="Path_57090" data-name="Path 57090" d="M161.524,160.587a.663.663,0,1,1-.937.937l-1.992-1.992-1.992,1.992a.663.663,0,0,1-.937-.937l1.992-1.992-1.992-1.992a.663.663,0,1,1,.937-.937l1.992,1.992,1.992-1.992a.663.663,0,0,1,.937.937l-1.992,1.992Zm0,0" transform="translate(-150.64 -150.64)" fill="#fafafa"/>
+      </g>
+    </g>
+  </g>
+</svg>

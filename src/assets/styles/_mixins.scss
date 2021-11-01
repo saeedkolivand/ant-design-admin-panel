@@ -1,0 +1,27 @@
+@mixin mainColor {
+  background-color: #fff;
+  box-shadow: 0 8px 15px #00000029;
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin absoluteCenter {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin whiteText {
+  color: #ffffff;
+}
+
+@mixin fontGenerator($font-size: 1, $color: unset, $font-weight: unset) {
+  font-size: $font-size * 1px;
+  color: $color;
+  font-weight: $font-weight;
+  margin-bottom: unset;
+}

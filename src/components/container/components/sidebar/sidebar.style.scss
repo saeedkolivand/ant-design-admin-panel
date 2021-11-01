@@ -1,0 +1,82 @@
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar {
+  .logo {
+    width: 100%;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: -4px 4px 9px -3px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    position: relative;
+    margin-bottom: 1rem;
+    @include flexCenter;
+
+    .text {
+      font-size: 0.9rem;
+      margin-bottom: unset;
+      color: #247d9f;
+    }
+
+    .image {
+      width: 43px;
+      height: 43px;
+      margin-right: 8px;
+      margin-left: 8px;
+    }
+  }
+
+  .ant-layout-sider-children {
+    overflow: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+
+    .ant-menu {
+      flex-grow: 1;
+    }
+  }
+
+  .switch-theme {
+    width: 100%;
+    height: max-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    transition: all 0.3s;
+    @media (max-width: 480px) {
+    }
+
+    span {
+      white-space: nowrap;
+      overflow: hidden;
+      font-size: 12px;
+    }
+
+    :global {
+      .anticon {
+        min-width: 14px;
+        margin-right: 4px;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .ant-menu-inline-collapsed {
+    width: 100%;
+  }
+
+  .app-version {
+    text-align: center;
+    padding: 2px;
+    font-size: 14px;
+    color: #666;
+    @media (max-width: 480px) {
+      font-size: 10px;
+    }
+  }
+}
