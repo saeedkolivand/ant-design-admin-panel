@@ -27,7 +27,6 @@ yarn test
 
 👤 **Saeed Kolivand**
 
-* Website: https://www.linkedin.com/in/saeedkolivand/
 * Github: [@saeedkolivand](https://github.com/saeedkolivand)
 * LinkedIn: [@saeedkolivand](https://linkedin.com/in/saeedkolivand)
 
