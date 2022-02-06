@@ -1,7 +1,6 @@
 import React, { Suspense } from "react";
 import { Spin } from "antd";
-import { BrowserRouter, Route } from "react-router-dom";
-import { haveAccess } from "../pages/userManagement/components/privileges/privileges.utils";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AppContainer from "../components/appContainer/AppContainer";
 import PrivateRoute from "../components/privateRoute/PrivateRoute";
 import { DashboardRoutes } from "../pages/dashboard/dashboard.route";
@@ -19,10 +18,9 @@ export const appRoutes: ContainerRoute[] = [
   ...LbsManagementRoutes,
   {
     title: "404",
-    component: NotFound,
+    element: NotFound,
     exact: false,
     isPublicRoute: true,
-    path: null,
     showInSideBar: false,
   },
 ];
@@ -33,62 +31,69 @@ const App = () => (
   <AppContainer>
     <Suspense fallback={<Spin spinning />}>
       <BrowserRouter>
-        {adminRoutes.map((item, index) => {
-          return (
-            <React.Fragment key={`route-wrapper-${index}`}>
-              {item.isPublicRoute ? (
-                <Route
-                  exact={item.exact}
-                  path={item.path || ""}
-                  component={item.component}
-                  key={`route-${index}`}
-                />
-              ) : (
-                <PrivateRoute
-                  exact={item.exact}
-                  path={item.path}
-                  component={item.component}
-                  item={{ ...item }}
-                  key={`route-private-${index}`}
-                />
-              )}
-              {item.children &&
-                item.children.length > 0 &&
-                item.children.map((child, indexChild) => {
-                  const access = child.permissions
-                    ? haveAccess(child.permissions)
-                    : true;
-                  if (!access) {
+        <Routes>
+          {adminRoutes.map((item, index) => {
+            return (
+              <React.Fragment key={`route-wrapper-${index}`}>
+                {item.isPublicRoute ? (
+                  <Route
+                    path={`${item.path || ""}/${item.exact && "*"}`}
+                    key={`route-${index}`}
+                    element={
+                      <PublicRoute restricted={item.isPublicRoute}>
+                        {item.element}
+                      </PublicRoute>
+                    }
+                  />
+                ) : (
+                  <Route
+                    path={`${item.path || ""}/${item.exact && "*"}`}
+                    element={<PrivateRoute>{item.element}</PrivateRoute>}
+                    key={`route-private-${index}`}
+                  />
+                )}
+                {item.children &&
+                  item.children.length > 0 &&
+                  item.children.map((child, indexChild) => {
                     return (
-                      <React.Fragment
-                        key={`route-wrapper-child-${indexChild}`}
-                      />
+                      <React.Fragment key={`route-wrapper-child-${indexChild}`}>
+                        {/* <Helmet> */}
+                        {/*  <title> */}
+                        {/*    {appLanguage === "fa" */}
+                        {/*      ? `${item.titleFa || ""} | ${ */}
+                        {/*          child.titleFa || "" */}
+                        {/*        }` */}
+                        {/*      : `${item.titleEn || ""} | ${ */}
+                        {/*          child.titleEn || "" */}
+                        {/*        }`} */}
+                        {/*  </title> */}
+                        {/* </Helmet> */}
+                        {item.isPublicRoute ? (
+                          <Route
+                            path={`${child.path || ""}/${child.exact && "*"}`}
+                            key={`route-child-${indexChild}`}
+                            element={
+                              <PublicRoute restricted={child.isPublicRoute}>
+                                {child.element}
+                              </PublicRoute>
+                            }
+                          />
+                        ) : (
+                          <Route
+                            path={`${child.path || ""}/${child.exact && "*"}`}
+                            element={
+                              <PrivateRoute>{child.element}</PrivateRoute>
+                            }
+                            key={`route-child-private-${indexChild}`}
+                          />
+                        )}
+                      </React.Fragment>
                     );
-                  }
-                  return (
-                    <React.Fragment key={`route-wrapper-child-${indexChild}`}>
-                      {item.isPublicRoute ? (
-                        <Route
-                          exact={child.exact}
-                          path={child.path || ""}
-                          component={child.component}
-                          key={`route-child-${indexChild}`}
-                        />
-                      ) : (
-                        <PrivateRoute
-                          exact={child.exact}
-                          path={child.path}
-                          component={child.component}
-                          key={`route-child-private-${indexChild}`}
-                          item={{ ...child }}
-                        />
-                      )}
-                    </React.Fragment>
-                  );
-                })}
-            </React.Fragment>
-          );
-        })}
+                  })}
+              </React.Fragment>
+            );
+          })}
+        </Routes>
       </BrowserRouter>
     </Suspense>
   </AppContainer>

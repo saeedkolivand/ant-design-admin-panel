@@ -20,24 +20,23 @@ export const UserManagementPathNames = {
 
 export const UserManagementRoutes: ContainerRoute[] = [
   {
-    titleFa: "Users Management",
     title: "Users Management",
     path: UserManagementPathNames.root,
-    component: UserManagement,
+    element: UserManagement,
     exact: true,
     icon: <TeamOutlined />,
     children: [
       {
         title: "Roles",
         path: UserManagementPathNames.roles,
-        component: Roles,
+        element: Roles,
         exact: true,
         icon: <DingtalkOutlined />,
       },
       {
         title: "Users",
         path: UserManagementPathNames.clients,
-        component: Clients,
+        element: Clients,
         icon: <UserOutlined />,
         exact: true,
       },

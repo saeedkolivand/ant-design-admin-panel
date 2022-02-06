@@ -1,13 +1,15 @@
-import React from "react";
+import { ReactNode } from "react";
+import { RouteObject } from "react-router-dom";
 
-export type ContainerRoute = {
+export interface ContainerRoute extends RouteObject {
+  caseSensitive?: boolean;
+  index?: boolean;
   id?: string | number;
   title?: string;
-  titleFa?: string;
-  path: string | null;
-  component: React.ComponentType<any>;
-  render?: React.ComponentType<any>;
-  icon?: React.ReactNode | HTMLElement | null;
+  path?: string;
+  element?: ReactNode;
+  render?: ReactNode;
+  icon?: ReactNode | HTMLElement | null;
   exact?: boolean;
   children?: ContainerRoute[];
   isPublicRoute?: boolean;
@@ -15,4 +17,4 @@ export type ContainerRoute = {
   item?: any;
   showInSideBar?: boolean;
   sidebarPathParams?: any;
-};
+}

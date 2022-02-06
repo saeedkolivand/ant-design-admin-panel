@@ -10,7 +10,7 @@ export const DashboardRoutes: ContainerRoute[] = [
   {
     title: "Dashboard",
     path: DashboardPathNames.dashboard,
-    component: Dashboard,
+    element: Dashboard,
     exact: true,
     icon: <DashboardOutlined />,
   },

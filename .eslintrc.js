@@ -2,7 +2,6 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    jest: true,
   },
   extends: [
     "airbnb",
@@ -29,7 +28,7 @@ module.exports = {
   },
   rules: {
     "prettier/prettier": [
-      "warn",
+      "error",
       {
         endOfLine: "auto",
       },
@@ -40,6 +39,15 @@ module.exports = {
         extensions: [".ts", ".tsx", ".js"],
       },
     ],
+    "react/function-component-definition": [
+      2,
+      {
+        namedComponents: "arrow-function",
+        unnamedComponents: "arrow-function",
+      },
+    ],
+    "no-unused-expressions": "off",
+    "default-param-last": "off",
     "react/destructuring-assignment": "off",
     "react/jsx-no-bind": "off",
     "no-debugger": "off",

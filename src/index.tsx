@@ -1,13 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { I18nextProvider } from "react-i18next";
+import i18n from "./app/i18n/i18n";
 import { Provider } from "react-redux";
-import { applyMiddleware, compose, createStore } from "redux";
-import thunk from "redux-thunk";
+import { compose } from "redux";
 import { ConfigProvider } from "antd";
 import { QueryClient, QueryClientProvider } from "react-query";
-import reducerApp from "./app/reducers";
 import App from "./routes/router";
 import reportWebVitals from "./reportWebVitals";
+import store from "./app/store";
 
 declare global {
   interface Window {
@@ -15,19 +16,18 @@ declare global {
   }
 }
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducerApp, composeEnhancers(applyMiddleware(thunk)));
-
 const queryClient = new QueryClient();
 
 ReactDOM.render(
-  <Provider store={store}>
-    <ConfigProvider>
-      <QueryClientProvider client={queryClient}>
-        <App />
-      </QueryClientProvider>
-    </ConfigProvider>
-  </Provider>,
+  <I18nextProvider i18n={i18n}>
+    <Provider store={store}>
+      <ConfigProvider>
+        <QueryClientProvider client={queryClient}>
+          <App />
+        </QueryClientProvider>
+      </ConfigProvider>
+    </Provider>
+  </I18nextProvider>,
   document.getElementById("root")
 );
 
