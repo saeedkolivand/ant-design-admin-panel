@@ -2,7 +2,7 @@
 import { Location } from "history";
 import { Path, pathToRegexp } from "path-to-regexp";
 
-export const getActivePath = (routes: any, location: Location<unknown>) => {
+export const getActivePath = (routes: any, location: Location) => {
   // routes is an array of routes
   let isChild = false;
   let currentMenu: null | { path: Path; children: any[] } | undefined;

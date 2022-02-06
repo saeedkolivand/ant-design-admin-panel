@@ -1,14 +1,13 @@
 import React from "react";
 import "./breadcrumb.style.scss";
 import { Breadcrumb, message } from "antd";
-import { Link, useLocation, useRouteMatch } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { getActivePath } from "../sidebar/components/getActivePath";
 import { ActivePathTypes, BreadcrumbTypes } from "./breadcrumb.types";
 
 const Bread: React.FC<BreadcrumbTypes> = (props) => {
   const { routeList: routes } = props;
   const location = useLocation();
-  const match = useRouteMatch();
   const activePath: ActivePathTypes | any = getActivePath(routes, location);
 
   if (!activePath || (activePath && !activePath.currentMenu)) {
@@ -30,7 +29,7 @@ const Bread: React.FC<BreadcrumbTypes> = (props) => {
             </span>
           </Breadcrumb.Item>
           <Breadcrumb.Item key="item">
-            {match.path === activePath.currentMenu.path ? (
+            {location.pathname === activePath.currentMenu.path ? (
               <div>
                 {activePath.currentMenu.icon}{" "}
                 {activePath.currentMenu.title

@@ -29,4 +29,5 @@ export interface ReadInterface {
   filter?: object | ArrayLike<any> | undefined | any;
   setFilter?: (arg: any[]) => void;
   isFilter?: boolean;
+  setIsFilter?: (arg: boolean) => void;
 }

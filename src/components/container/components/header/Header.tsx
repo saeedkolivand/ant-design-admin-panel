@@ -6,13 +6,10 @@ import {
   MenuUnfoldOutlined,
 } from "@ant-design/icons";
 import { Button, Col, Dropdown, Layout, Menu, Row } from "antd";
-import { useSelector } from "react-redux";
 import { HeaderTypes } from "./header.types";
 
 const Header: React.FC<HeaderTypes> = (props) => {
   const { collapsed, toggle } = props;
-
-  const { profileReducer } = useSelector((state: any) => state);
 
   const handleLogout = () => {
     localStorage.clear();
@@ -44,13 +41,7 @@ const Header: React.FC<HeaderTypes> = (props) => {
           >
             <Button className="profile-btn">
               {window.outerWidth > 768 ? (
-                <div className="profile">
-                  Hello
-                  {", "}
-                  {profileReducer.data.username
-                    ? profileReducer.data.username
-                    : "User"}
-                </div>
+                <div className="profile">Hello</div>
               ) : (
                 ""
               )}

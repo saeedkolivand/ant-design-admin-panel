@@ -1,21 +1,20 @@
 import React, { useState } from "react";
 import { Button, Divider, Steps } from "antd";
 import "./forgotPassword.style.scss";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { isLogin } from "../../login.utils";
 import { FirstStep } from "./components/FirstStep";
 import { SecondStep } from "./components/SecondStep";
 import { ThirdStep } from "./components/ThirdStep";
-import DatyarFullLogo from "../../../../assets/login/datyar.png";
 import LoginBackground from "../../../../assets/login/bg.svg";
 
 const { Step } = Steps;
 
 const ForgotPassword = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   if (isLogin()) {
-    history.push("/");
+    navigate("/");
   }
 
   const [current, setCurrent] = useState(0);
@@ -45,7 +44,6 @@ const ForgotPassword = () => {
 
   return (
     <div>
-      <img className="login-datyar-full-logo" src={DatyarFullLogo} alt="logo" />
       <div className="forgot-password">
         <div className="login-holder">
           <img className="login-holder--info" src={LoginBackground} alt="bg" />
@@ -68,7 +66,7 @@ const ForgotPassword = () => {
                 <Button onClick={() => prev()}>Previous</Button>
                 <Button
                   type="text"
-                  onClick={() => history.push("/login")}
+                  onClick={() => navigate("/login")}
                   className="secondary-button"
                 >
                   Login

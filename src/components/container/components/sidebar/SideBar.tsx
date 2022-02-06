@@ -24,7 +24,9 @@ const SideBar: React.FC<SidebarTypes> = (props) => {
       onBreakpoint={(broken) => setCollapsed(broken)}
     >
       <div className="logo">
-        <img src={Config.appLogo} alt="logo" className="image" />
+        {Config.appLogo && (
+          <img src={Config.appLogo} alt="logo" className="image" />
+        )}
         <h1 className="text" style={{ display: `${collapsed ? "none" : ""}` }}>
           {Config.appName}
         </h1>

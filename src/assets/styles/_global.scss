@@ -517,36 +517,3 @@ body {
     }
   }
 }
-
-.gmnoprint a,
-.gmnoprint span {
-  display: none;
-}
-
-.gmnoprint div {
-  background: none !important;
-  display: none !important;
-}
-
-#GMapsID div div a div img {
-  display: none !important;
-}
-
-.gm-style-cc {
-  display: none !important;
-}
-
-.ant-menu-item {
-  margin-right: 10px;
-
-  &:hover {
-    border: 1px solid #1da57a;
-    border-radius: 20px 0 0 20px;
-  }
-}
-
-.ant-menu-item-selected {
-  color: #fff;
-  background-color: #1da57a !important;
-  border-radius: 20px 0 0 20px;
-}

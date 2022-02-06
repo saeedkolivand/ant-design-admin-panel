@@ -1,7 +1,5 @@
-import { Button, Form, Input, message, Space } from "antd";
+import { Button, Form, Input, Space } from "antd";
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import { handleResetPass } from "../../../login.api";
 
 interface ThirdStepInterface {
   email: string;
@@ -12,36 +10,9 @@ interface ThirdStepInterface {
 export const ThirdStep: React.FC<ThirdStepInterface> = (props) => {
   const { email, otpCode, toPrevStep } = props;
   const [loading, setLoading] = useState(false);
-  const history = useHistory();
-
-  const handleSubmit = (values: object | any) => {
-    values.otp = otpCode;
-    delete values.confirmPassword;
-
-    setLoading(true);
-    handleResetPass(values)
-      .then((r) => {
-        // @ts-ignore
-        if (r.data.message) {
-          // @ts-ignore
-          message.info(r.data.message);
-          history.push("/login");
-        }
-      })
-      .catch((error) => {
-        if (
-          error.response.status === 400 &&
-          error.response.data.message === "The token is not valid."
-        ) {
-          message.error("Wrong Code!");
-          toPrevStep();
-        }
-      })
-      .finally(() => setLoading(false));
-  };
 
   return (
-    <Form onFinish={handleSubmit}>
+    <Form onFinish={(values) => console.log(values)}>
       <Form.Item
         name="username"
         rules={[

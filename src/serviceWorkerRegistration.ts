@@ -1,14 +1,14 @@
 // This optional code is used to register a service worker.
 // register() is not called by default.
 
-// This lets the appContainer load faster on subsequent visits in production, and gives
-// it offline capabilities. However, it also means that developers (and systemUsers)
+// This lets the app load faster on subsequent visits in production, and gives
+// it offline capabilities. However, it also means that developers (and users)
 // will only see deployed updates on subsequent visits to a page, after all the
 // existing tabs open on the page have been closed, since previously cached
 // resources are updated in the background.
 
 // To learn more about the benefits of this model and instructions on how to
-// opt-in, newDrugStoresRequests https://bit.ly/CRA-PWA
+// opt-in, read https://cra.link/PWA
 
 const isLocalhost = Boolean(
   window.location.hostname === "localhost" ||
@@ -20,7 +20,12 @@ const isLocalhost = Boolean(
     )
 );
 
-export function register(config: any) {
+type Config = {
+  onSuccess?: (registration: ServiceWorkerRegistration) => void;
+  onUpdate?: (registration: ServiceWorkerRegistration) => void;
+};
+
+export function register(config?: Config) {
   if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
@@ -42,8 +47,8 @@ export function register(config: any) {
         // service worker/PWA documentation.
         navigator.serviceWorker.ready.then(() => {
           console.log(
-            "This web appContainer is being served cache-first by a service " +
-              "worker. To learn more, visit https://bit.ly/CRA-PWA"
+            "This web app is being served cache-first by a service " +
+              "worker. To learn more, visit https://cra.link/PWA"
           );
         });
       } else {
@@ -54,13 +59,7 @@ export function register(config: any) {
   }
 }
 
-function registerValidSW(
-  swUrl: RequestInfo | URL | string | any,
-  config: {
-    onUpdate: (arg0: ServiceWorkerRegistration) => void;
-    onSuccess: (arg0: ServiceWorkerRegistration) => void;
-  }
-) {
+function registerValidSW(swUrl: string, config?: Config) {
   navigator.serviceWorker
     .register(swUrl)
     .then((registration) => {
@@ -72,12 +71,12 @@ function registerValidSW(
         installingWorker.onstatechange = () => {
           if (installingWorker.state === "installed") {
             if (navigator.serviceWorker.controller) {
-              // At this point, the updated precached news has been fetched,
+              // At this point, the updated precached content has been fetched,
               // but the previous service worker will still serve the older
-              // news until all client tabs are closed.
+              // content until all client tabs are closed.
               console.log(
-                "New news is available and will be used when all " +
-                  "tabs for this page are closed. See https://bit.ly/CRA-PWA."
+                "New content is available and will be used when all " +
+                  "tabs for this page are closed. See https://cra.link/PWA."
               );
 
               // Execute callback
@@ -104,15 +103,9 @@ function registerValidSW(
     });
 }
 
-function checkValidServiceWorker(
-  swUrl: RequestInfo | URL | string,
-  config: {
-    onUpdate: (arg0: ServiceWorkerRegistration) => void;
-    onSuccess: (arg0: ServiceWorkerRegistration) => void;
-  }
-) {
+function checkValidServiceWorker(swUrl: string, config?: Config) {
   // Check if the service worker can be found. If it can't reload the page.
-  fetch(<Request | string>swUrl, {
+  fetch(swUrl, {
     headers: { "Service-Worker": "script" },
   })
     .then((response) => {
@@ -122,7 +115,7 @@ function checkValidServiceWorker(
         response.status === 404 ||
         (contentType != null && contentType.indexOf("javascript") === -1)
       ) {
-        // No service worker found. Probably a different appContainer. Reload the page.
+        // No service worker found. Probably a different app. Reload the page.
         navigator.serviceWorker.ready.then((registration) => {
           registration.unregister().then(() => {
             window.location.reload();

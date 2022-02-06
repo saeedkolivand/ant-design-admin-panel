@@ -1,10 +1,10 @@
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button, Form, Input, Space, Spin } from "antd";
 import React, { useState } from "react";
 
 export const LoginForm = () => {
   const [loading, setLoading] = useState(false);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleSubmit = (values: { username: string; password: string }) => {
     setLoading(true);
@@ -61,7 +61,7 @@ export const LoginForm = () => {
             </Button>
             <Button
               type="text"
-              onClick={() => history.push("/forgot-password")}
+              onClick={() => navigate("/forgot-password")}
               className="secondary-button"
             >
               Forgot Password

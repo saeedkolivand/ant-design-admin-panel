@@ -7,18 +7,15 @@ import { DashboardRoutes } from "../pages/dashboard/dashboard.route";
 import { LoginRoutes } from "../pages/login/login.routes";
 import { ContainerRoute } from "./containerRoutes.types";
 import getContainerRoutes from "./containerRoutes";
-import { UserManagementRoutes } from "../pages/userManagement/userMangement.route";
-import { LbsManagementRoutes } from "../pages/lbsManagement/lbsManagement.route";
 import NotFound from "../components/notFound/NotFound";
+import PublicRoute from "../components/publicRoute/PublicRoute";
 
 export const appRoutes: ContainerRoute[] = [
   ...DashboardRoutes,
   ...LoginRoutes,
-  ...UserManagementRoutes,
-  ...LbsManagementRoutes,
   {
     title: "404",
-    element: NotFound,
+    element: <NotFound />,
     exact: false,
     isPublicRoute: true,
     showInSideBar: false,
@@ -57,17 +54,6 @@ const App = () => (
                   item.children.map((child, indexChild) => {
                     return (
                       <React.Fragment key={`route-wrapper-child-${indexChild}`}>
-                        {/* <Helmet> */}
-                        {/*  <title> */}
-                        {/*    {appLanguage === "fa" */}
-                        {/*      ? `${item.titleFa || ""} | ${ */}
-                        {/*          child.titleFa || "" */}
-                        {/*        }` */}
-                        {/*      : `${item.titleEn || ""} | ${ */}
-                        {/*          child.titleEn || "" */}
-                        {/*        }`} */}
-                        {/*  </title> */}
-                        {/* </Helmet> */}
                         {item.isPublicRoute ? (
                           <Route
                             path={`${child.path || ""}/${child.exact && "*"}`}

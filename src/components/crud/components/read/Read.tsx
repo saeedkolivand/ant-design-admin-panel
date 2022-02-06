@@ -21,6 +21,7 @@ const Read: React.FC<ReadInterface> = (props) => {
     setFilter,
     setApiData,
     isFilter,
+    setIsFilter,
   } = props;
 
   const [showDatePickers, setShowDatePickers] = useState(false);
@@ -36,6 +37,9 @@ const Read: React.FC<ReadInterface> = (props) => {
     }
     if (setFilter) {
       setFilter([]);
+    }
+    if (setIsFilter) {
+      setIsFilter(false);
     }
     setPaginationState((prevData: any) => {
       return {
@@ -122,6 +126,23 @@ const Read: React.FC<ReadInterface> = (props) => {
           </Col>
         );
       }
+      // if (item.filter && item.filter === "fromTo") {
+      //   return (
+      //     <Col key={index} xs={24} sm={24} md={20} lg={5}>
+      //       <div>فیلتر تاریخ</div>
+      //       <FilterFromTo
+      //         {...props}
+      //         filter={filter}
+      //         setFilter={setFilter}
+      //         item={item.key}
+      //         reset={reset}
+      //         setReset={setReset}
+      //         showDatePickers={showDatePickers}
+      //         setShowDatePickers={setShowDatePickers}
+      //       />
+      //     </Col>
+      //   );
+      // }
       if (item.filter) {
         return (
           <Col key={index} xs={24} sm={24} md={20} lg={5}>
@@ -153,6 +174,15 @@ const Read: React.FC<ReadInterface> = (props) => {
 
   return (
     <>
+      {/* {showTotalItems && (
+        <Space align="center" style={{ marginBottom: 16 }}>
+          {`All: ${
+            typeof paginationState.total !== "undefined"
+              ? `${paginationState.total} ایتم`
+              : "ثبت نشده"
+          }`}
+        </Space>
+      )} */}
       {isFilter && (
         <Row className="filters">
           <Col xs={24} sm={24} md={24} lg={24}>
@@ -172,12 +202,16 @@ const Read: React.FC<ReadInterface> = (props) => {
                 lg={5}
               >
                 <Button
+                  id="submit-filter"
                   style={{
                     width: "100%",
                   }}
                   className="flex-Center"
                   type="primary"
                   onClick={confirmHolder}
+                  // disabled={
+                  //  !Object.values(filter).find((item: any) => item.length)
+                  // }
                   icon={<SearchOutlined />}
                 />
               </Col>
@@ -202,7 +236,7 @@ const Read: React.FC<ReadInterface> = (props) => {
                   type="primary"
                   onClick={resetHolder}
                 >
-                  reset
+                  بازنشانی
                 </Button>
               </Col>
             </Row>
@@ -217,7 +251,7 @@ const Read: React.FC<ReadInterface> = (props) => {
         locale={{
           emptyText: hasError ? (
             <Button className="try-again" onClick={fetchData}>
-              Retry
+              تلاش مجدد
             </Button>
           ) : undefined,
         }}

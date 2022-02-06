@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Menu } from "antd";
 import { Link, useLocation } from "react-router-dom";
-import { haveAccess } from "../../../../../pages/userManagement/components/privileges/privileges.utils";
 import { getActivePath } from "../components/getActivePath";
 import { MenuItemsTypes } from "./renderMenuItem.types";
 import { ActivePathTypes } from "../../breadcrumb/breadcrumb.types";
@@ -49,16 +48,15 @@ const RenderMenuItems: React.FC<MenuItemsTypes> = (props) => {
     >
       {routes &&
         routes.map((item, index) => {
-          let {
-            titleFa,
+          const {
             title,
             icon,
-            path,
             showInSideBar,
             id,
             children,
             sidebarPathParams,
           } = item;
+          let { path } = item;
 
           if (sidebarPathParams && typeof sidebarPathParams === "object") {
             for (const key in sidebarPathParams) {
@@ -70,40 +68,17 @@ const RenderMenuItems: React.FC<MenuItemsTypes> = (props) => {
             }
           }
 
-          let access: string | boolean = false;
-          if (item.children && item.children.length > 0) {
-            item.children.forEach((child) => {
-              if (access === false && haveAccess(child.permissions)) {
-                access = true;
-              }
-            });
-          } else {
-            access = true;
-          }
-
-          if (access && item.permissions && item.permissions.length > 0) {
-            access = haveAccess(item.permissions);
-          }
-
-          if (
-            (typeof showInSideBar !== "undefined" && !showInSideBar) ||
-            !access
-          ) {
+          if (typeof showInSideBar !== "undefined" && !showInSideBar) {
             return <span key={`sidebar-${index}`} />;
           }
 
           if (children) {
             return (
-              <Menu.SubMenu key={`${id}`} icon={icon} title={title || titleFa}>
+              <Menu.SubMenu key={`${id}`} icon={icon} title={title || ""}>
                 {children.map((child, index) => {
-                  const access = child.permissions
-                    ? haveAccess(child.permissions)
-                    : true;
-
                   if (
-                    (typeof child.showInSideBar !== "undefined" &&
-                      !child.showInSideBar) ||
-                    !access
+                    typeof child.showInSideBar !== "undefined" &&
+                    !child.showInSideBar
                   ) {
                     return <span key={`sidebar-children-${index}`} />;
                   }
@@ -126,7 +101,7 @@ const RenderMenuItems: React.FC<MenuItemsTypes> = (props) => {
                   return (
                     <Menu.Item key={child.id} icon={child.icon}>
                       <Link to={(child && child.path) || "/"}>
-                        {child.title ? child.title : child.titleFa}
+                        {child.title ? child.title : ""}
                       </Link>
                     </Menu.Item>
                   );
@@ -137,7 +112,7 @@ const RenderMenuItems: React.FC<MenuItemsTypes> = (props) => {
 
           return (
             <Menu.Item key={`${id}`} icon={icon}>
-              <Link to={path || "/"}>{title || titleFa}</Link>
+              <Link to={path || "/"}>{title || ""}</Link>
             </Menu.Item>
           );
         })}

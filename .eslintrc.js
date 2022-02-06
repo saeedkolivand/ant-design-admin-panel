@@ -74,9 +74,10 @@ module.exports = {
     "react-hooks/exhaustive-deps": "off",
     "no-restricted-syntax": "off",
     "react/require-default-props": "off",
+    "import/no-extraneous-dependencies": "off",
     "unused-imports/no-unused-imports": "error",
     "unused-imports/no-unused-vars": [
-      "warn",
+      "error",
       {
         vars: "all",
         varsIgnorePattern: "^",

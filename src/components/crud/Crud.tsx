@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Form, message, Modal } from "antd";
 import { AxiosResponse } from "axios";
 import queryString from "query-string";
-import { useHistory } from "react-router-dom";
 import { EditOutlined } from "@ant-design/icons/lib/icons";
 import { DeleteOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 import DropOption from "./components/dropOption/DropOption";
 import { convertArrayToTitleObject, Log, logType } from "../../app/util";
 import Create from "./components/create/Create";
@@ -14,8 +14,8 @@ import Read from "./components/read/Read";
 import { CrudProps } from "./crud.types";
 
 const Crud: React.FC<CrudProps> = (props) => {
-  const history = useHistory();
-  const parsedQueryString: any = queryString.parse(history.location.search);
+  const navigate = useNavigate();
+  const parsedQueryString: any = queryString.parse(window.location.search);
   const {
     create,
     get,
@@ -83,6 +83,21 @@ const Crud: React.FC<CrudProps> = (props) => {
   const [lastFetchDependency, setLastFetchDependency] = useState([]);
 
   useEffect(() => {
+    const listener = (event: KeyboardEvent) => {
+      if (event.code === "Enter" || event.code === "NumpadEnter") {
+        event.preventDefault();
+        fetchData();
+      }
+    };
+
+    document.addEventListener("keydown", listener);
+
+    return () => {
+      document.removeEventListener("keydown", listener);
+    };
+  }, []);
+
+  useEffect(() => {
     handleSetOtherAction();
   }, []);
 
@@ -90,7 +105,7 @@ const Crud: React.FC<CrudProps> = (props) => {
     if (columns && columns.length > 0) {
       const indexColumn: object[] = [
         {
-          title: "No.",
+          title: "ردیف",
           dataIndex: "index",
           key: "index",
           width: "5%",
@@ -126,6 +141,7 @@ const Crud: React.FC<CrudProps> = (props) => {
 
       setTableColumn([...indexColumn, ...columnsParse, ...preColumn]);
     }
+    // eslint-disable-next-line
   }, [columns, preColumn, paginationState.current]);
 
   useEffect(() => {
@@ -136,6 +152,8 @@ const Crud: React.FC<CrudProps> = (props) => {
         generateColumn(dataSource);
       }
     }
+
+    // eslint-disable-next-line
   }, [apiData, dataSource]);
 
   useEffect(() => {
@@ -148,6 +166,7 @@ const Crud: React.FC<CrudProps> = (props) => {
         fetchData();
       }
     }
+    // eslint-disable-next-line
   }, [
     paginationState.current,
     paginationState.filters,
@@ -155,6 +174,7 @@ const Crud: React.FC<CrudProps> = (props) => {
     paginationState.sort,
     paginationState.sortKey,
     paginationState.total,
+    // eslint-disable-next-line
     ...fetchDataDependency,
   ]);
 
@@ -200,7 +220,7 @@ const Crud: React.FC<CrudProps> = (props) => {
         name: (
           <div>
             <DeleteOutlined />
-            &nbsp;Delete
+            &nbsp; حذف
           </div>
         ),
         func: (record: {
@@ -210,13 +230,13 @@ const Crud: React.FC<CrudProps> = (props) => {
           const id =
             (record && record.userDto && record.userDto.id) || record.id;
           if (!id) {
-            message.error("id does NOT exist");
+            message.error("ایدی وجود ندارد");
             return false;
           }
 
           Modal.confirm({
             className: "delete-operation-modal",
-            title: "Are you sure you want to delete this record?",
+            title: "ایا از حذف این مورد مطمئن هستید؟",
             onOk() {
               setLoading(true);
               if (remove.api) {
@@ -246,7 +266,7 @@ const Crud: React.FC<CrudProps> = (props) => {
       setPreColumn([
         ...preColumn,
         {
-          title: "Actions",
+          title: "عملیات",
           dataIndex: "",
           key: "x",
           align: "center",
@@ -344,8 +364,8 @@ const Crud: React.FC<CrudProps> = (props) => {
       delete paginationData.filterDate;
     }
 
-    history.push({
-      pathname: history.location.pathname,
+    navigate({
+      pathname: window.location.pathname,
       search: `?${Object.keys(paginationData)
         .map((key) =>
           key === "filterDate"
@@ -417,7 +437,7 @@ const Crud: React.FC<CrudProps> = (props) => {
   };
 
   const deleteThen = () => {
-    message.info("Deleted successfully!");
+    message.info("با موفقیت حذف شد!");
     fetchData();
     setLoading(false);
   };
@@ -534,6 +554,7 @@ const Crud: React.FC<CrudProps> = (props) => {
         setFilter={setFilter}
         setApiData={setApiData}
         isFilter={isFilter}
+        setIsFilter={setIsFilter}
       />
     </Form>
   );

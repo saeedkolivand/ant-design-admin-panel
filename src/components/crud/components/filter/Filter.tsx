@@ -1,9 +1,8 @@
 import { Select } from "antd";
 import React, { useEffect, useState } from "react";
 import queryString from "query-string";
-import { useHistory } from "react-router-dom";
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { Key } from "rc-select/lib/interface/generator";
+import { useLocation } from "react-router-dom";
+import { FlattenOptionData } from "rc-select/lib/interface";
 import { checkValue } from "../../../../app/util";
 import { filterInterface } from "./filter.types";
 
@@ -12,8 +11,8 @@ const { Option } = Select;
 const Filter: React.FC<filterInterface> = (props) => {
   const { setFilter, item, title, style, reset, setReset, itemFilters } = props;
   const [value, setValue] = useState("");
-  const history = useHistory();
-  const parsedQueryString: any = queryString.parse(history.location.search);
+  const location = useLocation();
+  const parsedQueryString: any = queryString.parse(location.search);
 
   useEffect(() => {
     if (parsedQueryString[item] && !checkValue(value)) {
@@ -53,7 +52,7 @@ const Filter: React.FC<filterInterface> = (props) => {
           itemFilters.map(
             (
               item: {
-                value: Key;
+                value: FlattenOptionData<any>;
                 text:
                   | boolean
                   | React.ReactChild

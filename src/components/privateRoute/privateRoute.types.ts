@@ -1,4 +1,5 @@
+import React from "react";
+
 export type PrivateRouteProps = {
-  component?: any;
-  render?: any;
+  children?: React.ReactNode;
 };

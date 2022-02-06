@@ -12,7 +12,7 @@ export const LoginPathNames = {
 export const LoginRoutes: ContainerRoute[] = [
   {
     path: LoginPathNames.login,
-    element: Login,
+    element: <Login />,
     exact: true,
     icon: <LoginOutlined />,
     showInSideBar: false,
@@ -20,7 +20,7 @@ export const LoginRoutes: ContainerRoute[] = [
   },
   {
     path: LoginPathNames.forgotPassword,
-    element: ForgotPassword,
+    element: <ForgotPassword />,
     exact: true,
     icon: <LoginOutlined />,
     showInSideBar: false,

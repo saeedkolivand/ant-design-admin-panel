@@ -88,10 +88,12 @@ export const downloadWithAxios = (
     });
 };
 
-export const getCookieLanguages = () => {
-  const value = `; ${document.cookie}`;
-  const parts: any = value.split("; i18next=");
-  if (parts.length === 2) return parts.pop().split(";").shift();
+export const getAppLanguages = () => {
+  const value = window.localStorage.getItem("lang");
+  if (value === "fa") return "fa";
+  if (value === "en") return "en";
+  window.localStorage.setItem("lang", "fa");
+  return "fa";
 };
 
 export const getDateString = (
